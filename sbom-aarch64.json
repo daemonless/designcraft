@@ -1,11 +1,11 @@
 {
-  "generated": "2026-10-14T18:35:32Z",
+  "generated": "2026-10-18T07:33:26Z",
   "image": "designcraft",
   "tags": {
     "latest-aarch64": {
-      "app_version": "0.8.0",
+      "app_version": "0.9.0",
       "arch": "aarch64",
-      "generated": "2026-10-14T18:35:02Z",
+      "generated": "2026-10-18T07:32:57Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -259,7 +259,7 @@
               "MPL20"
             ],
             "name": "ca_root_nss",
-            "version": "3.130"
+            "version": "3.131"
           },
           {
             "licenses": [
