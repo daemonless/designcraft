@@ -31,8 +31,14 @@ LABEL org.opencontainers.image.title="DesignCraft" \
 # The web release is a static WebAssembly site (index.html + .js/.wasm), no server code.
 # Some releases ship cargo build leftovers (.fingerprint, build, deps) and .br files nginx
 # cannot serve; drop them. Precompress the rest so nginx gzip_static sends ~40% of the raw wasm.
+# The API is rate-limited on shared CI runners (403, empty version); fall back to the
+# tag that github.com/.../releases/latest redirects to.
 RUN pkg update && pkg install -y ${PACKAGES} && \
     VERSION=$(fetch -qo - "${UPSTREAM_URL}" | jq -r "${UPSTREAM_JQ}" | sed 's/^v//') && \
+    if [ -z "${VERSION}" ] || [ "${VERSION}" = "null" ]; then \
+        VERSION=$(fetch -v -o /dev/null "https://github.com/storytold/designcraft/releases/latest" 2>&1 | sed -n 's|^.*redirect to .*/releases/tag/v\{0,1\}||p' | head -1); \
+    fi && \
+    if [ -z "${VERSION}" ]; then echo "ERROR: could not resolve the release version" >&2; exit 1; fi && \
     echo "Installing DesignCraft web ${VERSION}" && \
     fetch -qo /tmp/designcraft-web.zip "https://github.com/storytold/designcraft/releases/download/v${VERSION}/designcraft-web-${VERSION}.zip" && \
     unzip -q /tmp/designcraft-web.zip -d /tmp/designcraft-web && \
