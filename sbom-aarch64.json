@@ -1,11 +1,11 @@
 {
-  "generated": "2026-11-04T17:33:18Z",
+  "generated": "2026-11-05T08:19:24Z",
   "image": "designcraft",
   "tags": {
     "latest-aarch64": {
-      "app_version": "0.17.0",
+      "app_version": "0.17.2",
       "arch": "aarch64",
-      "generated": "2026-11-04T17:32:38Z",
+      "generated": "2026-11-05T08:18:49Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
