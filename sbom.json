@@ -1,11 +1,11 @@
 {
-  "generated": "2026-11-09T23:22:24Z",
+  "generated": "2026-11-11T21:33:50Z",
   "image": "designcraft",
   "tags": {
     "latest-amd64": {
-      "app_version": "0.19.0",
+      "app_version": "0.20.0",
       "arch": "amd64",
-      "generated": "2026-11-09T23:21:39Z",
+      "generated": "2026-11-11T21:32:59Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -266,7 +266,7 @@
               "BSD2CLAUSE"
             ],
             "name": "nginx",
-            "version": "1.30.6_11,3"
+            "version": "1.30.6_13,3"
           },
           {
             "licenses": [
